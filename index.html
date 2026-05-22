@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         /* Global & Theme Styles */
@@ -280,12 +280,48 @@
         .products-section h2 {
             font-size: 36px;
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 10px;
             color: #000000;
         }
 
         .products-section h2 span {
             color: var(--accent-green);
+        }
+
+        .search-filter-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+            padding-bottom: 15px;
+        }
+
+        .search-filter-bar p {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .filter-options {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-options span {
+            cursor: pointer;
+            color: #000000;
+            font-weight: 600;
+            padding: 5px 15px;
+            border-radius: 20px;
+            background-color: rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+
+        .filter-options span.active,
+        .filter-options span:hover {
+            color: #fff;
+            background-color: var(--accent-green);
         }
 
         .product-grid {
@@ -325,7 +361,6 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
 
-        /* Slider Universal CSS */
         .slider-container {
             position: relative;
             height: 230px;
@@ -456,7 +491,7 @@
             color: #fff;
         }
 
-        /* Admin Dashboard View */
+        /* Admin Controls Dashboard UI */
         .admin-dashboard-panel {
             display: none;
             padding: 40px 8%;
@@ -464,7 +499,6 @@
             border-top: 4px solid var(--accent-green);
         }
 
-        /* Admin Order List Layout Styles */
         .admin-table-container {
             width: 100%;
             overflow-x: auto;
@@ -485,6 +519,7 @@
         .order-table th, .order-table td {
             padding: 12px;
             border-bottom: 1px solid #ddd;
+            color: #000;
         }
 
         .order-table th {
@@ -577,7 +612,9 @@
             cursor: pointer;
         }
 
-        .submit-btn:hover { background-color: #000000; }
+        .submit-btn:hover {
+            background-color: #000000;
+        }
 
         /* Contact Section */
         .contact-section {
@@ -609,6 +646,83 @@
             align-items: center;
             border-radius: 50%;
             font-size: 18px;
+        }
+
+        /* Developer Card Styles */
+        .developer-footer-card {
+            background-color: #111111;
+            color: #ffffff;
+            padding: 30px 8%;
+            border-top: 1px solid #222222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dev-card-box {
+            background: #1a1a1a;
+            border: 1px solid #333333;
+            border-radius: 12px;
+            padding: 20px;
+            max-width: 600px;
+            width: 100%;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .dev-avatar-icon {
+            font-size: 45px;
+            color: #FFB22C;
+            background: #252525;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            border: 2px solid #FF7A00;
+        }
+
+        .dev-info-content h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 2px;
+        }
+
+        .dev-info-content .dev-title {
+            font-size: 13px;
+            color: #FFB22C;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .dev-info-content .dev-edu {
+            font-size: 12px;
+            color: #aaaaaa;
+            margin-bottom: 8px;
+        }
+
+        .dev-info-content .dev-bio {
+            font-size: 12px;
+            color: #cccccc;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .dev-meta-links {
+            display: flex;
+            gap: 15px;
+            font-size: 12px;
+            color: #FF7A00;
+            font-weight: 600;
+        }
+
+        .dev-meta-links a:hover {
+            color: #ffffff;
         }
 
         /* Toast Notifications */
@@ -646,10 +760,40 @@
         }
 
         @media (max-width: 968px) {
-            .hero { flex-direction: column-reverse; text-align: center; gap: 40px; }
-            .hero-content { max-width: 100%; }
-            .hero-image { width: 100%; }
-            .product-grid, .contact-grid { display: flex; flex-direction: column; gap: 30px; }
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .hero-image {
+                width: 100%;
+            }
+
+            .product-grid, .contact-grid {
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .search-filter-bar {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .dev-card-box {
+                flex-direction: column;
+                text-align: center;
+                padding: 25px 15px;
+            }
+
+            .dev-meta-links {
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -678,13 +822,11 @@
             <div class="hero-content">
                 <h1>Fresh & Organic <br><span>Rajshahi Mangoes</span> Direct to Your Home</h1>
                 <p>Indulge in the authentic sweetness of naturally ripened, chemical-free and premium grade Rajshahi mangoes.</p>
-                
                 <div class="admin-badge-hero" id="live-admin-statement-box">
                     <h4 style="font-size: 15px; font-weight:700;"><i class="fas fa-quote-left"></i> অ্যাডমিনের শুভেচ্ছা বাণী:</h4>
-                    <p id="live-admin-text" style="font-size: 14px; margin: 5px 0; font-style: italic; color: #111;">"আমাদের লক্ষ্য রাজশাহীর খাঁটি ও ফরমালিন মুক্ত আম সরাসরি আপনার দোরগোড়ায় পৌঁছে দেওয়া।"</p>
+                    <p id="live-admin-text" style="font-size: 14px; margin: 5px 0; font-style: italic; color: #111;">"আমাদের লক্ষ্য রাজশাহীর খাঁটি ও ফরমালিন মুক্ত আম সরাসরি আপনার দোরগোড়ায় পৌঁছে দেওয়া।"</p>
                     <small id="live-admin-signature" style="font-weight:700; color:var(--accent-green);">- Md. Shahoriyar Nafiz Ratul</small>
                 </div>
-
                 <div class="hero-buttons">
                     <button onclick="document.getElementById('shop').scrollIntoView()" class="btn primary-btn">Order Online Now <i class="fas fa-arrow-right"></i></button>
                     <button onclick="navigateToPage('reviews')" class="btn secondary-btn">Customer Reviews</button>
@@ -699,8 +841,7 @@
         <section class="home-feedback-section">
             <div class="feedback-container">
                 <h3 style="text-align: center; font-size: 22px; font-weight: 700; margin-bottom: 5px;"><i class="fas fa-pen-alt"></i> <b>ক্রেতাদের মতামত ও রিভিউ হাব</b></h3>
-                <p style="text-align: center; font-size: 13px; color: var(--text-muted); margin-bottom: 20px; font-weight: 500;">আমাদের আম আপনার কেমন লেগেছে? সরাসরি মতামত শেয়ার করুন!</p>
-                
+                <p style="text-align: center; font-size: 13px; color: var(--text-muted); margin-bottom: 20px; font-weight: 500;">আমাদের আম আপনার কেমন লেগেছে? সরাসরি মতামত শেয়ার করুন!</p>
                 <form id="reviewForm" onsubmit="handleHomeDirectReviewSubmission(event)">
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
                         <div class="form-group">
@@ -714,7 +855,7 @@
                     </div>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
                         <div class="form-group">
-                            <label>ক্রয়কৃত আমের নাম/জাত</label>
+                            <label>ক্রয়কৃত আমের নাম/জাত</label>
                             <input type="text" id="home-rev-product" placeholder="উদা: হিমসাগর আম" required>
                         </div>
                         <div class="form-group">
@@ -726,77 +867,103 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>আপনার ঠিকানা/বাসা (গোপন থাকবে)</label>
-                        <input type="text" id="home-rev-address" placeholder="উদা: উপশহর, রাজশাহী" required>
+                        <label>আপনার ঠিকানা/স্থান</label>
+                        <input type="text" id="home-rev-address" placeholder="উদা: বোয়ালিয়া, রাজশাহী" required>
                     </div>
                     <div class="form-group">
-                        <label>আপনার গুরুত্বপূর্ণ মতামত</label>
-                        <textarea id="home-rev-text" placeholder="আমের কোয়ালিটি ও স্বাদ নিয়ে কিছু বলুন..." required style="height: 70px;"></textarea>
+                        <label>রিভিউ বার্তা</label>
+                        <textarea id="home-rev-text" rows="3" placeholder="আমের স্বাদ, সাইজ এবং আমাদের ডেলিভারি সার্ভিস নিয়ে আপনার বিস্তারিত অনুভূতি লিখুন..." required></textarea>
                     </div>
-                    <button type="submit" class="submit-btn" style="background: #000;">রিভিউ সাবমিট করুন <i class="fas fa-paper-plane"></i></button>
+                    <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> লাইভ রিভিউ সাবমিট করুন</button>
                 </form>
             </div>
         </section>
 
         <section class="products-section" id="shop">
-            <h2>আমাদের <span>তাজা আমসমূহ</span></h2>
+            <h2>আমাদের তাজা <span>আমের কালেকশন</span></h2>
+            <div class="search-filter-bar">
+                <p>সেরা মানের আম বেছে নিন</p>
+            </div>
             <div class="product-grid" id="product-list-view">
                 </div>
         </section>
 
-        <section class="admin-dashboard-panel" id="admin-control-view">
-            <h2 style="font-size: 28px; margin-bottom: 20px; color: var(--accent-green);"><i class="fas fa-user-shield"></i> Admin Control Center</h2>
+        <div class="admin-dashboard-panel" id="admin-control-view">
+            <h2 style="text-align: center; color: #000; margin-bottom: 25px;"><i class="fas fa-user-shield"></i> সিকিউর এডমিন ড্যাশবোর্ড প্যানেল</h2>
             
-            <div style="background: #fff; padding: 25px; border-radius: 15px; border: 2px solid var(--accent-green); margin-bottom: 30px;">
-                <h3 style="font-size:18px; font-weight:700; color:#000; margin-bottom:10px;"><i class="fas fa-list-alt"></i> নতুন ইনকামিং অর্ডার তালিকা (Admin Only Area)</h3>
-                <div class="admin-table-container">
-                    <table class="order-table">
-                        <thead>
-                            <tr>
-                                <th>গ্রাহক ও কন্টাক্ট</th>
-                                <th>পণ্য</th>
-                                <th>পেমেন্ট মাধ্যম</th>
-                                <th>পরিমাণ ও TrxID</th>
-                                <th>স্ট্যাটাস</th>
-                                <th>অ্যাকশন অ্যাক্টিভিটি</th>
-                            </tr>
-                        </thead>
-                        <tbody id="admin-orders-table-rows">
-                            </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div style="background: #fff; padding: 25px; border-radius: 15px; border: 2px solid var(--accent-green); margin-bottom: 30px;">
-                <h3 style="margin-bottom: 15px; font-weight: 700;"><i class="fas fa-plus-circle"></i> নতুন প্রোডাক্ট যোগ করুন</h3>
+            <div style="background:#fff; padding:25px; border-radius:12px; max-width:600px; margin: 0 auto 30px auto; box-shadow:0 4px 10px rgba(0,0,0,0.05);">
+                <h3 style="margin-bottom:15px; font-size:18px; color:#000;"><i class="fas fa-plus-circle"></i> নতুন প্রোডাক্ট যোগ করুন</h3>
                 <form id="addProductForm" onsubmit="handleAdminProductUpload(event)">
                     <div class="form-group">
-                        <label>প্রোডাক্টের নাম</label>
-                        <input type="text" id="prod-name" placeholder="যেমন: আম্রপালি আম" required>
+                        <label>আমের নাম/জাত</label>
+                        <input type="text" id="prod-name" placeholder="যেমন: ল্যাংড়া আম" required>
                     </div>
                     <div class="form-group">
-                        <label>দাম (প্রতি কেজি)</label>
-                        <input type="number" id="prod-price" placeholder="যেমন: 120" required>
+                        <label>মূল্য (টাকা/কেজি)</label>
+                        <input type="number" id="prod-price" placeholder="যেমন: 90" required>
                     </div>
                     <div class="form-group">
-                        <label>বিবরণ</label>
-                        <textarea id="prod-desc" placeholder="প্রোডাক্টের বিবরণ লিখুন..." required style="height: 60px;"></textarea>
+                        <label>আমের বিবরণ</label>
+                        <textarea id="prod-desc" rows="3" placeholder="আমের বৈশিষ্ট্যসমূহ লিখুন..." required></textarea>
                     </div>
-                    <button type="submit" class="submit-btn">আপলোড করুন</button>
+                    <button type="submit" class="submit-btn" style="background-color: var(--accent-green);">আপলোড করুন</button>
                 </form>
             </div>
-        </section>
+
+            <h3 style="color:#000; font-size:20px; margin-top:20px;"><i class="fas fa-boxes"></i> গ্রাহকদের ইনকামিং অর্ডার তালিকা</h3>
+            <div class="admin-table-container">
+                <table class="order-table">
+                    <thead>
+                        <tr>
+                            <th>গ্রাহকের বিবরণ</th>
+                            <th>অর্ডারকৃত আম</th>
+                            <th>পেমেন্ট মেথড</th>
+                            <th>মোট টাকা ও TrxID</th>
+                            <th>স্ট্যাটাস</th>
+                            <th>অ্যাকশন</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-orders-table-rows">
+                        </tbody>
+                </table>
+            </div>
+        </div>
 
         <section class="contact-section" id="contact">
             <div class="contact-grid">
                 <div>
-                    <h2 style="text-align: left; margin-bottom: 20px;">যোগাযোগ <span>করুন</span></h2>
-                    <div class="info-item"><i class="fas fa-phone"></i> <p>+880 17XXXXXXXX</p></div>
-                    <div class="info-item"><i class="fas fa-envelope"></i> <p>support@gramosodai.com</p></div>
-                    <div class="info-item"><i class="fas fa-map-marker-alt"></i> <p>রাজশাহী, বাংলাদেশ</p></div>
+                    <h2 style="font-size:32px; margin-bottom:15px; color:#000;">যোগাযোগ করুন</h2>
+                    <p style="color:var(--text-muted); margin-bottom:30px; font-weight:500;">যেকোনো জিজ্ঞাসা বা বাল্ক অর্ডারের জন্য আমাদের সাথে সরাসরি যোগাযোগ করতে পারেন।</p>
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4 style="color:#000;">হটলাইন নাম্বার</h4>
+                            <p style="color:var(--text-muted); font-weight:600;">+880 1700-000000</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4 style="color:#000;">ইমেইল এড্রেস</h4>
+                            <p style="color:var(--text-muted); font-weight:600;">support@gramosodai.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4 style="color:#000;">প্রধান কার্যালয়</h4>
+                            <p style="color:var(--text-muted); font-weight:600;">রাজশাহী সদর, রাজশাহী, বাংলাদেশ</p>
+                        </div>
+                    </div>
                 </div>
-                <div style="text-align: center;">
-                    <img src="https://placehold.co/400x250/FFDE4D/111111?text=Gramosodai+Mango" style="width: 100%; border-radius: 15px;" alt="Contact Mango">
+                <div style="background:#fff; padding:30px; border-radius:15px; box-shadow:0 5px 15px rgba(0,0,0,0.05);">
+                    <h3 style="margin-bottom:20px; color:#000;">সরাসরি বার্তা পাঠান</h3>
+                    <form onsubmit="event.preventDefault(); alert('বার্তা সফলভাবে পাঠানো হয়েছে!'); this.reset();">
+                        <div class="form-group"><label>আপনার নাম</label><input type="text" placeholder="নাম লিখুন" required></div>
+                        <div class="form-group"><label>ইমেইল এড্রেস</label><input type="email" placeholder="ইমেইল লিখুন" required></div>
+                        <div class="form-group"><label>বার্তা</label><textarea rows="4" placeholder="আপনার মেসেজ লিখুন..." required></textarea></div>
+                        <button type="submit" class="submit-btn">বার্তা পাঠান</button>
+                    </form>
                 </div>
             </div>
         </section>
@@ -804,75 +971,90 @@
 
     <div id="reviews-page-view" class="page-view hidden-view">
         <section class="reviews-section-page">
-            <h2>গ্রাহকদের <span>লাইভ মতামত</span></h2>
+            <h2>গ্রাহকদের <span>লাইভ রিভিউ ও রেটিং</span></h2>
+            <p style="text-align: center; color: var(--text-muted); font-weight: 500;">আমাদের সেবা ও আমের গুণগত মান সম্পর্কে ক্রেতাদের বাস্তব অভিজ্ঞতা।</p>
             <div class="reviews-grid" id="live-reviews-container-grid">
                 </div>
         </section>
     </div>
 
-    <div class="modal-overlay" id="loginModal">
-        <div class="modal-box">
-            <button class="close-modal-btn" onclick="toggleLoginModal()">&times;</button>
-            <h3 style="margin-bottom: 20px; font-weight: 700; text-align: center;"><i class="fas fa-lock"></i> এডমিন লগইন প্যানেল</h3>
-            <form onsubmit="handleAdminAuthLogin(event)">
-                <div class="form-group">
-                    <label>ইমেইল এড্রেস</label>
-                    <input type="email" id="login-email" required>
+    <div class="developer-footer-card">
+        <div class="dev-card-box">
+            <div class="dev-avatar-icon"><i class="fas fa-code"></i></div>
+            <div class="dev-info-content">
+                <h4>Md. Shahoriyar Nafiz Ratul</h4>
+                <div class="dev-title">Founder & Full-Stack Developer</div>
+                <div class="dev-edu">Gramyosodai Dev Project Core Admin</div>
+                <p class="dev-bio">আইটি সলিউশন ও ই-কমার্স সিস্টেম আর্কিটেকচার নিয়ে কাজ করছি। গ্রামীণ খাঁটি পণ্য প্রযুক্তির মাধ্যমে সবার কাছে পৌঁছে দেওয়াই আমার মূল লক্ষ্য।</p>
+                <div class="dev-meta-links">
+                    <a href="#"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="#"><i class="fas fa-globe"></i> Portfolio</a>
                 </div>
-                <div class="form-group">
-                    <label>পাসওয়ার্ড</label>
-                    <input type="password" id="login-password" required>
-                </div>
-                <button type="submit" class="submit-btn" style="margin-top: 10px;">লগইন করুন</button>
-            </form>
+            </div>
         </div>
     </div>
 
     <div class="modal-overlay" id="cartModal">
         <div class="modal-box">
-            <button class="close-modal-btn" onclick="toggleCartModal()">&times;</button>
-            <h3 style="margin-bottom: 20px; font-weight: 700;"><i class="fas fa-shopping-basket"></i> আপনার শপিং কার্ট</h3>
-            <div id="cart-items-wrapper"></div>
-            <div style="display: flex; justify-content: space-between; font-weight: 700; margin: 15px 0; padding-top:10px; border-top:2px solid #ccc;">
-                <span>সর্বমোট বিল:</span>
-                <span id="cart-total-price-amount">0 ৳</span>
+            <button class="close-modal-btn" onclick="toggleCartModal()"><i class="fas fa-times"></i></button>
+            <h3 style="margin-bottom: 20px; color:#000;"><i class="fas fa-shopping-basket"></i> আপনার শপিং কার্ট</h3>
+            <div id="cart-items-wrapper">
+                </div>
+            <div style="margin:20px 0; padding-top:15px; border-top:2px solid #ddd; display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:16px; font-weight:700; color:#000;">সর্বমোট মূল্য:</span>
+                <span style="font-size:18px; font-weight:800; color:var(--accent-green);" id="cart-total-price-amount">0 ৳</span>
             </div>
             
             <form id="checkoutForm" onsubmit="handleOrderCheckoutSubmission(event)">
-                <h4 style="margin: 15px 0 10px 0; border-bottom: 1px solid #aaa; padding-bottom: 5px;">ডেলিভারি ও পেমেন্ট তথ্য</h4>
-                <div class="form-group"><label>আপনার নাম</label><input type="text" id="ord-name" required></div>
-                <div class="form-group"><label>মোবাইল নাম্বার</label><input type="tel" id="ord-phone" required></div>
-                <div class="form-group"><label>পূর্ণাঙ্গ ঠিকানা</label><input type="text" id="ord-address" required></div>
+                <h4 style="margin-bottom:10px; color:#000; font-size:14px; border-bottom:1px dashed #ccc; padding-bottom:5px;">শিপিং ও পেমেন্ট বিবরণী</h4>
+                <div class="form-group"><label>আপনার নাম</label><input type="text" id="ord-name" placeholder="নাম লিখুন" required></div>
+                <div class="form-group"><label>মোবাইল নাম্বার</label><input type="tel" id="ord-phone" placeholder="মোবাইল নাম্বার লিখুন" required></div>
+                <div class="form-group"><label>পূর্ণাঙ্গ ডেলিভারি ঠিকানা</label><input type="text" id="ord-address" placeholder="বাসা/রোড, জেলা লিখুন" required></div>
                 <div class="form-group">
                     <label>পেমেন্ট মেথড</label>
                     <select id="ord-payment" onchange="toggleTrxField(this.value)">
-                        <option value="COD">Cash on Delivery (ক্যাশ অন ডেলিভারি)</option>
-                        <option value="Bkash">Bkash (বিকাশ পার্সোনাল)</option>
+                        <option value="Cash On Delivery">Cash On Delivery (ক্যাশ অন ডেলিভারি)</option>
+                        <option value="Bkash">Bkash (বিকাশ ম্যানুয়াল পেমেন্ট)</option>
                     </select>
                 </div>
-                <div class="form-group" id="trx-field-block" style="display: none;">
-                    <label style="color: var(--payment-purple);">বিকাশ ট্রানজেকশন ID (TrxID)</label>
-                    <input type="text" id="ord-trxid" placeholder="যেমন: Ax7392K">
+                <div class="form-group" id="trx-field-block" style="display:none;">
+                    <label style="color: purple;">বিকাশ TrxID (আমাদের নাম্বারে টাকা পাঠিয়ে আইডি দিন)</label>
+                    <input type="text" id="ord-trxid" placeholder="যেমন: BKX8923KL">
                 </div>
-                <button type="submit" class="submit-btn" style="margin-top: 15px; background: #000;">অর্ডার নিশ্চিত করুন <i class="fas fa-check-circle"></i></button>
+                <button type="submit" class="submit-btn" style="margin-top: 10px;"><i class="fas fa-check-circle"></i> অর্ডার নিশ্চিত করুন</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal-box" style="max-width:400px;">
+            <button class="close-modal-btn" onclick="toggleLoginModal()"><i class="fas fa-times"></i></button>
+            <h3 style="text-align:center; margin-bottom:20px; color:#000;"><i class="fas fa-lock"></i> এডমিন লগইন প্যানেল</h3>
+            <form onsubmit="handleAdminAuthLogin(event)">
+                <div class="form-group"><label>ইমেইল এড্রেস</label><input type="email" id="login-email" placeholder="admin@gmail.com" required></div>
+                <div class="form-group"><label>সিক্রেট পাসওয়ার্ড</label><input type="password" id="login-password" placeholder="••••••••" required></div>
+                <button type="submit" class="submit-btn" style="margin-top:10px;"><i class="fas fa-sign-in-alt"></i> ড্যাশবোর্ডে প্রবেশ করুন</button>
             </form>
         </div>
     </div>
 
     <div class="toast-notification" id="toast-alert-pop">
-        <i class="fas fa-info-circle"></i>
-        <span id="toast-message-text">বিজ্ঞপ্তি মেসেজ</span>
+        <i class="fas fa-bell"></i>
+        <span id="toast-message-text">অ্যালার্ট নোটিফিকেশন মেসেজ</span>
     </div>
 
     <footer>
-        <p>&copy; 2026 গ্রাম্য সদাই। অল রাইটস রিজার্ভড। ডেভলপড বাই রাতুল।</p>
+        <p>&copy; ২০২৬ গ্রাম্য সদাই ডট কম। সর্বস্বত্ব সংরক্ষিত। তৈরি করেছেন রিয়েলটাইম ইঞ্জিনিয়ারস টিম।</p>
     </footer>
 
     <script type="module">
+        // Firebase SDK Scripts (Modular App SDK Version)
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
         import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
-        import { getDatabase, ref, push, onValue, update } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
+        import { getDatabase, ref, set, push, onValue, update } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
 
+        // 🌍 আপনার 'gramosodai' প্রজেক্টের অরিজিনাল কনফিগারেশন
         const firebaseConfig = {
             apiKey: "AIzaSyBMLbsCg_t7dfeTC-Dx4rsab8vAJa1qbFn", 
             authDomain: "gramosodai.firebaseapp.com",
@@ -882,25 +1064,31 @@
             appId: "1:114600263565:web:8e6f5417fafc9056cddd41"
         };
 
+        // Initialize Firebase (بدون Storage)
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const db = getDatabase(app);
 
+        // App States Global Arrays
         let cart = [];
         let globalProducts = [
             { id: "p1", name: "হিমসাগর (ক্ষীরশাপাত) আম", price: 90, desc: "রাজশাহীর বাগান থেকে সরাসরি বাছাইকৃত অত্যন্ত মিষ্টি ও আঁশহীন আম।" },
-            { id: "p2", name: "প্রিমিয়াম ল্যাংড়া আম", price: 85, desc: "অসাধারণ সুবাস এবং চমৎকার স্বাদের জন্য বিখ্যাত রাজশাহীর খাঁটি ল্যাংড়া আম।" }
+            { id: "p2", name: "প্রিমিয়াম ল্যাংড়া আম", price: 85, desc: "অসাধারণ সুবাস এবং চমৎকার স্বাদের জন্য বিখ্যাত রাজশাহীর খাঁটি ল্যাংড়া আম।" }
         ];
 
+        // --- TOAST NOTIFICATION LOUDSPEAKER ---
         window.showToast = function(msg) {
             const toast = document.getElementById('toast-alert-pop');
             if(toast) {
                 document.getElementById('toast-message-text').innerText = msg;
                 toast.classList.add('active');
                 setTimeout(() => toast.classList.remove('active'), 3500);
+            } else {
+                alert(msg);
             }
         }
 
+        // --- NAVIGATION CONTROLLER ---
         window.navigateToPage = function(target) {
             const homeView = document.getElementById('homepage-main-wrapper');
             const reviewView = document.getElementById('reviews-page-view');
@@ -919,18 +1107,20 @@
             }
         }
 
+        // --- MODAL UTILITIES TOGGLERS ---
         window.toggleLoginModal = function() { document.getElementById('loginModal').classList.toggle('active'); }
         window.toggleCartModal = function() { document.getElementById('cartModal').classList.toggle('active'); }
         window.toggleTrxField = function(val) {
             document.getElementById('trx-field-block').style.display = (val === 'Bkash') ? 'block' : 'none';
         }
 
+        // --- PRODUCT RENDERING CORE ---
         function renderProducts() {
             const container = document.getElementById('product-list-view');
             if(!container) return;
             container.innerHTML = "";
             globalProducts.forEach(p => {
-                const imgUrl = "https://placehold.co/400x230/FFB22C/FFFFFF?text=" + encodeURIComponent(p.name);
+                const imgUrl = p.image || "https://placehold.co/400x230/FFB22C/FFFFFF?text=" + encodeURIComponent(p.name);
                 container.innerHTML += `
                     <div class="product-card">
                         <span class="discount-badge">তাজা আম</span>
@@ -948,24 +1138,30 @@
             });
         }
 
+        // Fetch Custom Products Uploaded by Admin via Firebase
         onValue(ref(db, 'products'), (snapshot) => {
             const data = snapshot.val();
             if(data) {
                 const firebaseProds = Object.keys(data).map(key => ({ id: key, ...data[key] }));
                 globalProducts = [
                     { id: "p1", name: "হিমসাগর (ক্ষীরশাপাত) আম", price: 90, desc: "রাজশাহীর বাগান থেকে সরাসরি বাছাইকৃত অত্যন্ত মিষ্টি ও আঁশহীন আম।" },
-                    { id: "p2", name: "প্রিমিয়াম ল্যাংড়া আম", price: 85, desc: "অসাধারণ সুবাস এবং চমৎকার স্বাদের জন্য বিখ্যাত রাজশাহীর খাঁটি ল্যাংড়া আম।" },
+                    { id: "p2", name: "প্রিমিয়াম ল্যাংড়া আম", price: 85, desc: "অসাধারণ সুবাস এবং চমৎকার স্বাদের জন্য বিখ্যাত রাজশাহীর খাঁটি ল্যাংড়া আম।" },
                     ...firebaseProds
                 ];
             }
             renderProducts();
         });
 
+        // --- CART MECHANICS LOGIC ---
         window.addToCart = function(id, name, price) {
             const exist = cart.find(item => item.id === id);
-            if(exist) { exist.qty++; } else { cart.push({ id, name, price, qty: 1 }); }
+            if(exist) {
+                exist.qty++;
+            } else {
+                cart.push({ id, name, price, qty: 1 });
+            }
             updateCartUI();
-            showToast(`${name} কার্টে যুক্ত হয়েছে!`);
+            showToast(`${name} কার্টে যুক্ত হয়েছে!`);
         }
 
         function updateCartUI() {
@@ -984,7 +1180,7 @@
                 wrapper.innerHTML += `
                     <div style="display:flex; justify-content:space-between; align-items:center; background:#fff; padding:10px; border-radius:8px; margin-bottom:8px; font-size:13px;">
                         <div>
-                            <p><b>${item.name}</b></p>
+                            <p style="color:#000;"><b>${item.name}</b></p>
                             <p style="color:#666;">${item.price} ৳ x ${item.qty}</p>
                         </div>
                         <button onclick="removeFromCart(${index})" style="background:none; border:none; color:var(--accent-red); cursor:pointer;"><i class="fas fa-trash"></i></button>
@@ -994,7 +1190,7 @@
 
             if(countBadge) countBadge.innerText = totalCount;
             if(totalText) totalText.innerText = totalPrice + " ৳";
-            if(cart.length === 0) wrapper.innerHTML = "<p style='text-align:center; color:#555;'>আপনার কার্টটি খালি রয়েছে।</p>";
+            if(cart.length === 0) wrapper.innerHTML = "<p style='text-align:center; color:#555;'>আপনার কার্টটি খালি রয়েছে।</p>";
         }
 
         window.removeFromCart = function(index) {
@@ -1002,6 +1198,7 @@
             updateCartUI();
         }
 
+        // --- SUBMIT CUSTOMER ORDER TO FIREBASE DATABASE ---
         window.handleOrderCheckoutSubmission = function(e) {
             e.preventDefault();
             if(cart.length === 0) { showToast("দুঃখিত, আপনার কার্ট খালি!"); return; }
@@ -1029,7 +1226,7 @@
 
             push(ref(db, 'orders'), orderData)
                 .then(() => {
-                    showToast("আপনার অর্ডারটি সফলভাবে সাবমিট হয়েছে!");
+                    showToast("আপনার অর্ডারটি সফলভাবে সাবমিট হয়েছে!");
                     cart = [];
                     updateCartUI();
                     toggleCartModal();
@@ -1038,6 +1235,7 @@
                 .catch(err => showToast("ত্রুটি: " + err.message));
         }
 
+        // --- CUSTOMER REVIEW SUBMISSION (WITHOUT STORAGE) ---
         window.handleHomeDirectReviewSubmission = function(e) {
             e.preventDefault();
             const name = document.getElementById('home-rev-name').value;
@@ -1052,11 +1250,12 @@
             };
 
             push(ref(db, 'reviews'), revData).then(() => {
-                showToast("মতামত প্রদানের জন্য ধন্যবাদ!");
+                showToast("মতামত প্রদানের জন্য ধন্যবাদ! রিভিউটি লাইভ সেকশনে যুক্ত হয়েছে।");
                 document.getElementById('reviewForm').reset();
             }).catch(err => showToast("ত্রুটি: " + err.message));
         }
 
+        // Render Realtime Live Reviews
         onValue(ref(db, 'reviews'), (snapshot) => {
             const grid = document.getElementById('live-reviews-container-grid');
             if(!grid) return;
@@ -1077,10 +1276,11 @@
                     `;
                 });
             } else {
-                grid.innerHTML = "<p style='color:#555; text-align:center; grid-column: 1/-1;'>এখনো কোনো রিভিউ দেওয়া হয়নি।</p>";
+                grid.innerHTML = "<p style='color:#555; text-align:center; grid-column: 1/-1;'>এখনো কোনো রিভিউ দেওয়া হয়নি।</p>";
             }
         });
 
+        // --- ADMIN AUTH LOGIN ---
         window.handleAdminAuthLogin = function(e) {
             e.preventDefault();
             const email = document.getElementById('login-email').value;
@@ -1091,9 +1291,10 @@
                     showToast("এডমিন প্যানেলে স্বাগতম!");
                     toggleLoginModal();
                 })
-                .catch(err => showToast("লগইন ব্যর্থ!"));
+                .catch(err => showToast("লগইন ব্যর্থ: ইমেইল বা পাসওয়ার্ড ভুল!"));
         }
 
+        // Track Admin Authentication Status State Changes
         onAuthStateChanged(auth, (user) => {
             const adminPanel = document.getElementById('admin-control-view');
             const loginBtn = document.getElementById('admin-panel-btn');
@@ -1102,7 +1303,7 @@
             if(user) {
                 adminPanel.style.display = "block";
                 loginBtn.innerHTML = "<i class='fas fa-sign-out-alt'></i> Logout";
-                loginBtn.onclick = () => auth.signOut().then(() => showToast("লগআউট করা হয়েছে"));
+                loginBtn.onclick = () => auth.signOut().then(() => showToast("লগআউট করা হয়েছে"));
                 loadAdminOrdersTable();
             } else {
                 adminPanel.style.display = "none";
@@ -1111,6 +1312,7 @@
             }
         });
 
+        // --- LOAD INCOMING ORDERS TABLES (ADMIN ONLY) ---
         function loadAdminOrdersTable() {
             onValue(ref(db, 'orders'), (snapshot) => {
                 const tbody = document.getElementById('admin-orders-table-rows');
@@ -1135,16 +1337,17 @@
                         `;
                     });
                 } else {
-                    tbody.innerHTML = "<tr><td colspan='6' style='text-align:center;'>কোনো অর্ডার পাওয়া যায়নি।</td></tr>";
+                    tbody.innerHTML = "<tr><td colspan='6' style='text-align:center;'>কোনো অর্ডার পাওয়া যায়নি।</td></tr>";
                 }
             });
         }
 
         window.confirmOrder = function(orderId) {
             update(ref(db, `orders/${orderId}`), { status: "Confirmed" })
-                .then(() => showToast("অর্ডারটি কনফার্ম করা হয়েছে!"));
+                .then(() => showToast("অর্ডারটি কনফার্ম করা হয়েছে!"));
         }
 
+        // --- ADMIN NEW PRODUCT UPLOAD (TEXT ONLY) ---
         window.handleAdminProductUpload = function(e) {
             e.preventDefault();
             const name = document.getElementById('prod-name').value;
@@ -1153,11 +1356,12 @@
 
             const newProd = { name, price, desc, image: "" };
             push(ref(db, 'products'), newProd).then(() => {
-                showToast("নতুন প্রোডাক্ট সফলভাবে যুক্ত হয়েছে!");
+                showToast("নতুন প্রোডাক্ট সফলভাবে যুক্ত হয়েছে!");
                 document.getElementById('addProductForm').reset();
             }).catch(err => showToast("ব্যর্থ: " + err.message));
         }
 
+        // Initial Dynamic Rendering Trigger
         renderProducts();
     </script>
 </body>
