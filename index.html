@@ -2049,6 +2049,76 @@
             showToast("ক্যাটাগরি সফলভাবে যুক্ত হয়েছে!");
         }
     </script>
+<script type="module">
+    // Firebase মডিউলগুলো ইমপোর্ট করা
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js";
+
+    // আপনার স্ক্রিনশট থেকে পাওয়া আসল কনফিগারেশন ডাটা
+    const firebaseConfig = {
+        apiKey: "AIzaSyBF43iEnU4bkLRmPtnCH1FiPDUiGFZboAg",
+        authDomain: "gramsodai.firebaseapp.com",
+        projectId: "gramsodai",
+        storageBucket: "gramsodai.firebasestorage.app",
+        messagingSenderId: "76264625443",
+        appId: "1:76264625443:web:1cd2c6cf0135e2855aa896",
+        measurementId: "G-4400G62QKE"
+    };
+
+    // Firebase ইনিশিয়ালাইজ করা
+    const app = initializeApp(firebaseConfig);
+    const storage = getStorage(app);
+
+    // HTML এলিমেন্টগুলোর আইডি এখানে ধরুন (আপনার ইনপুট ও বাটনের আইডি অনুযায়ী এগুলো চেঞ্জ করতে পারেন)
+    const fileInput = document.querySelector('input[type="file"]'); // ছবি সিলেক্ট করার ইনপুট
+    const uploadBtn = document.querySelector('.admin-panel button, .review-form button'); // আপলোড বাটন
+    const profileImg = document.querySelector('.admin-profile img, .review-card img'); // যেখানে ছবি দেখাবে
+
+    if (uploadBtn && fileInput) {
+        uploadBtn.addEventListener('click', (e) => {
+            e.preventDefault(); // ফর্ম যেন রিফ্রেশ না হয়ে যায়
+
+            const file = fileInput.files[0];
+            if (!file) {
+                alert("দয়া করে আগে একটি ছবি সিলেক্ট করুন!");
+                return;
+            }
+
+            // ফায়ারবেস স্টোরেজে 'uploaded_images' ফোল্ডারে ছবি সেভ হবে
+            const storageRef = ref(storage, 'uploaded_images/' + Date.now() + '_' + file.name);
+
+            alert("ছবি সরাসরি সাইটে লাইভ হচ্ছে... একটু অপেক্ষা করুন।");
+
+            // ছবি আপলোড প্রসেস
+            uploadBytes(storageRef, file).then((snapshot) => {
+                getDownloadURL(snapshot.ref).then((downloadURL) => {
+                    console.log('Live Image URL:', downloadURL);
+
+                    // ওয়েবসাইটে ছবি সেট করা
+                    if (profileImg) {
+                        profileImg.src = downloadURL;
+                    }
+
+                    alert("দারুণ! ছবি সরাসরি লাইভ সাইটে আপলোড হয়ে গেছে।");
+
+                    // ব্রাউজারে লিংকটি সেভ রাখা যেন রিফ্রেশ করলেও ছবি না যায়
+                    localStorage.setItem('saved-live-img', downloadURL);
+                });
+            }).catch((error) => {
+                console.error("Upload failed:", error);
+                alert("ছবি আপলোড হতে সমস্যা হয়েছে। আপনার Firebase Storage-এর Rules 'Test Mode' করা আছে তো?");
+            });
+        });
+    }
+
+    // পেজ ওপেন হওয়ার সময় আগের আপলোড করা ছবি থাকলে তা লোড করা
+    document.addEventListener("DOMContentLoaded", () => {
+        const savedImg = localStorage.getItem('saved-live-img');
+        if (savedImg && profileImg) {
+            profileImg.src = savedImg;
+        }
+    });
+</script>
 </body>
 
 </html>
